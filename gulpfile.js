@@ -16,11 +16,12 @@ var uglify=require('gulp-uglify');
 //JADE
 var jade = require('gulp-jade')
 
+
 gulp.task('js', function() {
   return gulp.src("./dev/js/app.js")
     .pipe(uglify())
     .pipe(gulp.dest('./public/js'))// en dónde va a estar el archivo destino
-	  .pipe(livereload())
+  .pipe(livereload())
 });
 
 
@@ -31,13 +32,13 @@ gulp.task('styl', function() {
       'include css': true
     })) //inicializo stylus con nib como plugin  
     .pipe(concat('app.css'))
-    .pipe(minify())
+    //.pipe(minify())
     .pipe(gulp.dest('./public/css'))
     .pipe(livereload())
 })
 
 gulp.task('jade-components', function () {
-  return gulp.src('./dev/**/*.jade')
+  return gulp.src('./dev/views/index.jade')
   .pipe(jade({
     pretty: true
   }))
@@ -48,7 +49,7 @@ gulp.task('jade-components', function () {
 gulp.task('watch', function(){
   livereload.listen()
   gulp.watch('./dev/styl/app.styl', ['styl'])
-  gulp.watch('./dev/**/*.jade', ['jade-components'])
+  gulp.watch('./dev/views/index.jade', ['jade-components'])
   gulp.watch('./dev/js/app.js', ['js'])
 })
 

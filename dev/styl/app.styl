@@ -1,4 +1,35 @@
-variableColor = red;
+@import './normalize.styl'
 
 body
-	background:variableColor;
+	font-size: 16px;
+	color: black;
+
+a
+	text-decoration:none;
+	color: inherit;
+
+.Contenedor
+	width: 90%;
+	max-width: 900px;
+	margin: 0 auto;
+
+.Header
+	&-nav
+		ul
+			margin: 0;
+			padding: 0;
+			li
+				padding: 1em 0;
+				list-style: none;
+				text-align: center;
+	&-menu
+		text-align: center;
+	&-logo
+		padding: 1.5em 0;
+		border-top: 5px solid black;
+		border-bottom: 5px solid black;
+		figure
+			margin: 0 auto;
+			width: 2em;
+			height: 2em;
+			background: black;
